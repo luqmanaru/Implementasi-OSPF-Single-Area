@@ -1,0 +1,21 @@
+enable
+configure terminal
+hostname R2
+interface FastEthernet0/0
+ip address 192.168.1.2 255.255.255.252
+no shutdown
+exit
+interface FastEthernet0/1
+ip address 192.168.1.5 255.255.255.252
+no shutdown
+exit
+interface FastEthernet1/0
+ip address 192.168.20.1 255.255.255.248
+no shutdown
+exit
+router ospf 1
+network 192.168.1.0 0.0.0.3 area 0
+network 192.168.1.4 0.0.0.3 area 0
+network 192.168.20.0 0.0.0.7 area 0
+exit
+end
